@@ -1,0 +1,334 @@
+/* ─── Dashboard – matches Figma screenshot exactly ───────────────────────── */
+
+.dash-root {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Welcome */
+.dash-welcome {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a2a1a;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════
+   TOP GRID: stat cards (left) + chart (right)
+══════════════════════════════════════════════ */
+.dash-top-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ── Stat cards column ── */
+.dash-stat-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dash-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.dash-stat-card::before {
+  content: '';
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+}
+
+.dash-stat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dash-stat-label {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.dash-stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  min-width: 36px;
+  text-align: right;
+}
+
+/* ── Revenue chart card ── */
+.dash-chart-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #eef0f5;
+  overflow: hidden;
+}
+
+.dash-chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 8px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dash-chart-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.dash-chart-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #5a6a8a;
+}
+
+.dash-chart-amount {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a2a3a;
+}
+
+.dash-chart-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dash-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border: 1.5px solid #e0e4ed;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  color: #3a4a5a;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+.dash-filter-btn:hover { border-color: #3dba7a; }
+
+/* Green highlight for Oct button */
+.dash-filter-btn:first-child {
+  background: #3dba7a;
+  color: #fff;
+  border-color: #3dba7a;
+}
+
+.dash-chart-body {
+  padding: 8px 16px 16px;
+}
+
+/* ══════════════════════════════════════════════
+   BOTTOM GRID: turf requests (left) + feedbacks (right)
+══════════════════════════════════════════════ */
+.dash-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ── Shared card ── */
+.dash-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #eef0f5;
+  overflow: hidden;
+}
+
+.dash-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid #f0f2f8;
+}
+
+.dash-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a2a3a;
+}
+
+/* ── Turf requests table ── */
+.dash-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.dash-table thead th {
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8a9ab0;
+  background: #fafbfe;
+  border-bottom: 1px solid #eef0f8;
+  white-space: nowrap;
+}
+
+.dash-table tbody td {
+  padding: 13px 16px;
+  border-bottom: 1px solid #f2f4f8;
+  color: #3a4a5a;
+  vertical-align: middle;
+}
+
+.dash-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.dash-table tbody tr:hover {
+  background: #fafcff;
+}
+
+/* View link */
+.dash-link-btn {
+  background: none;
+  border: none;
+  color: #3dba7a;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  font-family: inherit;
+}
+
+/* Approve / Reject buttons */
+.dash-action-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dash-approve-btn {
+  background: none;
+  border: none;
+  color: #3dba7a;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  transition: opacity 0.2s;
+}
+.dash-approve-btn:hover { opacity: 0.75; }
+
+.dash-reject-btn {
+  background: none;
+  border: none;
+  color: #e53935;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  transition: opacity 0.2s;
+}
+.dash-reject-btn:hover { opacity: 0.75; }
+
+/* ── Recent Feedbacks ── */
+.dash-feedback-arrow {
+  background: none;
+  border: none;
+  color: #3a4a5a;
+  cursor: pointer;
+  display: flex;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.dash-feedback-arrow:hover { background: #f0f4f0; }
+
+.dash-feedback-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.dash-feedback-item {
+  display: flex;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid #f2f4f8;
+}
+
+.dash-feedback-item:last-child {
+  border-bottom: none;
+}
+
+.dash-feedback-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #3a4a5a;
+  flex-shrink: 0;
+}
+
+.dash-feedback-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.dash-feedback-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a2a3a;
+  margin-bottom: 3px;
+}
+
+.dash-feedback-text {
+  font-size: 11.5px;
+  color: #7a8a9a;
+  line-height: 1.5;
+  margin-bottom: 4px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.dash-feedback-date {
+  font-size: 11px;
+  color: #aab0bc;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .dash-top-grid    { grid-template-columns: 1fr; }
+  .dash-bottom-grid { grid-template-columns: 1fr; }
+}

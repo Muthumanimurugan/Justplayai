@@ -1,0 +1,345 @@
+/* ─── Login Page – matches Figma design ─────────────────────────────────── */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.login-root {
+  min-height: 100vh;
+  background: #f0f4f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ── Floating sport ball decorations ── */
+.login-bg-balls {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* basketball – top right */
+.ball-basketball {
+  position: absolute;
+  top: -20px;
+  right: 60px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 36%, #f4a35a 0%, #d4752a 100%);
+  opacity: 0.35;
+  box-shadow: inset -8px -8px 20px rgba(0,0,0,0.2);
+}
+.ball-basketball::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    linear-gradient(transparent 48%, rgba(0,0,0,0.25) 48%, rgba(0,0,0,0.25) 52%, transparent 52%),
+    linear-gradient(90deg, transparent 48%, rgba(0,0,0,0.25) 48%, rgba(0,0,0,0.25) 52%, transparent 52%);
+}
+
+/* cricket ball – left center */
+.ball-cricket {
+  position: absolute;
+  top: 38%;
+  left: 32px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 36%, #e8e8e8 0%, #bfc4c9 100%);
+  opacity: 0.4;
+}
+
+/* tennis – bottom left */
+.ball-tennis {
+  position: absolute;
+  bottom: 60px;
+  left: 80px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 36%, #d4e8a0 0%, #a8c454 100%);
+  opacity: 0.45;
+}
+
+/* soccer – bottom right */
+.ball-soccer {
+  position: absolute;
+  bottom: -20px;
+  right: 100px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 36%, #e8e8e8 0%, #c8ccd0 100%);
+  opacity: 0.35;
+}
+.ball-soccer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(0,0,0,0.08) 31%, rgba(0,0,0,0.08) 33%, transparent 34%);
+}
+
+/* ── Layout wrapper ── */
+.login-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  width: 100%;
+  max-width: 900px;
+  padding: 40px 24px;
+}
+
+/* ── Left card – stadium image ── */
+.login-left-card {
+  width: 300px;
+  min-height: 480px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  background: #111;
+}
+
+.login-stadium-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+/* Dark overlay at top for logo readability */
+.login-left-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.10) 40%,
+    rgba(0,0,0,0.05) 100%
+  );
+}
+
+.login-left-brand {
+  position: relative;
+  z-index: 1;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.login-left-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-puzzle-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.login-brand-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.login-tagline {
+  font-size: 13px;
+  color: rgba(255,255,255,0.80);
+  padding-left: 46px;
+  font-style: italic;
+}
+
+/* ── Right form panel ── */
+.login-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.login-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: 1px;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #3a3a4a;
+}
+
+.form-label .required {
+  color: #e53935;
+  margin-left: 2px;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 40px 12px 14px;
+  border: 1.5px solid #d8dde6;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #1a1a2e;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  border-color: #3dba7a;
+}
+
+.form-input::placeholder {
+  color: #b0b8c4;
+}
+
+.pwd-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #9aa0ac;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  transition: color 0.2s;
+}
+.pwd-toggle:hover { color: #3dba7a; }
+
+/* Forgot password */
+.forgot-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.forgot-link {
+  font-size: 13px;
+  color: #3dba7a;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.forgot-link:hover { opacity: 0.75; }
+
+/* Error */
+.login-error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #ef4444;
+  font-size: 13px;
+  padding: 10px 14px;
+  border-radius: 6px;
+}
+
+/* Login button */
+.btn-login {
+  width: 100%;
+  padding: 14px;
+  background: #3dba7a;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+.btn-login:hover:not(:disabled) { background: #2ea868; }
+.btn-login:active:not(:disabled) { transform: scale(0.99); }
+.btn-login:disabled { opacity: 0.7; cursor: not-allowed; }
+
+/* Spinner */
+.spinner {
+  width: 18px; height: 18px;
+  border: 2.5px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Demo hint */
+.login-demo-hint {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.demo-pills {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.demo-pill {
+  padding: 5px 16px;
+  border: 1.5px solid #d8dde6;
+  border-radius: 99px;
+  background: #fff;
+  font-size: 12px;
+  color: #4a4a68;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.demo-pill:hover {
+  border-color: #3dba7a;
+  background: #f0faf5;
+  color: #3dba7a;
+}
+
+.text-xs { font-size: 11px; }
+.text-muted { color: #9aa0ac; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .login-left-card { display: none; }
+  .login-wrapper { justify-content: center; }
+}

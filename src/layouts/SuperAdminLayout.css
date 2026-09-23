@@ -1,0 +1,275 @@
+/* ─── Super Admin Shell – matches Figma screenshot ───────────────────────── */
+
+.sa-root {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7fa;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ══════════════════════════════════════════════
+   SIDEBAR
+══════════════════════════════════════════════ */
+.sa-sidebar {
+  width: 200px;
+  background: linear-gradient(180deg, #c8edd8 0%, #a8dcc0 40%, #d4edd8 100%);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 0 24px 24px 0;
+  box-shadow: 2px 0 16px rgba(0,0,0,0.06);
+  z-index: 100;
+}
+
+/* Logo area */
+.sa-sidebar-logo {
+  padding: 24px 20px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sa-logo-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.sa-logo-text-wrap {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.sa-logo-name {
+  font-size: 16px;
+  font-weight: 800;
+  color: #1a3a2a;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.sa-logo-tagline {
+  font-size: 9px;
+  color: #3a6a4a;
+  font-style: italic;
+}
+
+/* Nav */
+.sa-nav {
+  flex: 1;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 4px;
+}
+
+.sa-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #2a5a3a;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s;
+  white-space: nowrap;
+}
+
+.sa-nav-item:hover {
+  background: rgba(255,255,255,0.45);
+  color: #1a3a2a;
+}
+
+.sa-nav-item.active {
+  background: rgba(255,255,255,0.60);
+  color: #1a3a2a;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.sa-nav-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.sa-nav-item.active .sa-nav-icon { opacity: 1; }
+
+/* Sidebar footer */
+.sa-sidebar-footer {
+  padding: 16px 14px;
+  border-top: 1px solid rgba(255,255,255,0.4);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sa-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #2ea868;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sa-user-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.sa-user-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a3a2a;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sa-user-role {
+  font-size: 10px;
+  color: #3a6a4a;
+}
+
+.sa-logout-btn {
+  background: none;
+  border: none;
+  color: #3a6a4a;
+  display: flex;
+  padding: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+.sa-logout-btn:hover {
+  color: #ef4444;
+  background: rgba(239,68,68,0.1);
+}
+
+/* ══════════════════════════════════════════════
+   TOP HEADER BAR
+══════════════════════════════════════════════ */
+.sa-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  background: #fff;
+  border-bottom: 1px solid #eef0f4;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.sa-topbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sa-topbar-logo-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1a3a2a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sa-topbar-logo-tagline {
+  font-size: 9px;
+  color: #6a8a7a;
+  font-style: italic;
+}
+
+.sa-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sa-topbar-bell {
+  position: relative;
+  background: none;
+  border: none;
+  color: #6a8a7a;
+  cursor: pointer;
+  display: flex;
+  padding: 4px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.sa-topbar-bell:hover { background: #f0f4f0; }
+
+.sa-topbar-bell-dot {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ef4444;
+  border: 1.5px solid #fff;
+}
+
+.sa-topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sa-topbar-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6ec6a0, #3dba7a);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.sa-topbar-user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a2a1a;
+}
+
+/* ══════════════════════════════════════════════
+   MAIN CONTENT
+══════════════════════════════════════════════ */
+.sa-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.sa-content {
+  flex: 1;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
