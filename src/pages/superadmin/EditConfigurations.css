@@ -1,0 +1,516 @@
+/* ─── Edit Configurations Page ───────────────────────────────────────────── */
+.ec-root {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Back header */
+.ec-back-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ec-back-btn {
+  background: none;
+  border: none;
+  color: #3a4a5a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background .2s;
+}
+.ec-back-btn:hover { background: #f0f4f0; }
+
+.ec-back-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a2a1a;
+}
+
+/* ── Tab bar ── */
+.ec-tabs {
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 2px solid #eef0f5;
+  gap: 0;
+  position: relative;
+}
+
+.ec-tab {
+  padding: 10px 18px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #6a8a7a;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  font-family: inherit;
+  transition: color .2s;
+  white-space: nowrap;
+}
+
+.ec-tab:hover { color: #1a2a1a; }
+
+.ec-tab.active {
+  color: #3dba7a;
+  font-weight: 700;
+}
+
+.ec-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #3dba7a;
+  border-radius: 2px 2px 0 0;
+}
+
+/* Green right-edge indicator (matching Figma) */
+.ec-tab-edge {
+  width: 4px;
+  height: 44px;
+  background: #3dba7a;
+  border-radius: 4px 0 0 4px;
+  margin-left: auto;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* ── Tab content area ── */
+.ec-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Add button row */
+.ec-add-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ec-add-btn {
+  background: #3dba7a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.ec-add-btn:hover { background: #2ea868; }
+
+/* ── Config table ── */
+.ec-table-wrap {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e0e6e0;
+}
+
+.ec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+.ec-table thead tr {
+  background: #3dba7a;
+}
+
+.ec-table thead th {
+  padding: 12px 18px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.ec-table tbody tr {
+  border-bottom: 1px solid #f0f4f0;
+  transition: background .15s;
+}
+
+.ec-table tbody tr:last-child { border-bottom: none; }
+.ec-table tbody tr:hover { background: #f5fbf7; }
+
+.ec-table tbody td {
+  padding: 13px 18px;
+  color: #3a5a4a;
+  vertical-align: middle;
+}
+
+.ec-table tbody td.td-id {
+  color: #8aaa9a;
+  font-size: 12px;
+}
+
+.ec-table tbody td.td-name {
+  color: #3dba7a;
+  font-weight: 500;
+}
+
+/* Image/icon circle */
+.ec-img-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: linear-gradient(135deg, #a0d8b8, #3dba7a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: 11px;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Action icons */
+.ec-actions { display: flex; gap: 10px; align-items: center; }
+
+.ec-icon-edit {
+  background: none;
+  border: none;
+  color: #3dba7a;
+  cursor: pointer;
+  display: flex;
+  padding: 2px;
+  transition: opacity .2s;
+}
+.ec-icon-edit:hover { opacity: .7; }
+
+.ec-icon-del {
+  background: none;
+  border: none;
+  color: #e05555;
+  cursor: pointer;
+  display: flex;
+  padding: 2px;
+  transition: opacity .2s;
+}
+.ec-icon-del:hover { opacity: .7; }
+
+/* ── Sports dropdown select row ── */
+.ec-sport-select-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ec-select-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #3a4a5a;
+}
+.ec-select-label .req { color: #e53935; }
+
+.ec-select {
+  padding: 9px 32px 9px 12px;
+  border: 1.5px solid #d4ddd4;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #1a2a1a;
+  background: #f5f7f5;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236a8a7a' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  width: 200px;
+  transition: border-color .2s;
+}
+.ec-select:focus { border-color: #3dba7a; }
+
+/* ── Cancellation / Image Limit form ── */
+.ec-form-section {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #eef0f5;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ec-form-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a2a1a;
+  margin: 0;
+}
+
+.ec-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.ec-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ec-field.full { grid-column: 1 / -1; }
+
+.ec-field-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #5a6a7a;
+}
+.ec-field-label .req { color: #e53935; }
+
+.ec-field-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #d4ddd4;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #1a2a1a;
+  background: #f5f7f5;
+  font-family: inherit;
+  outline: none;
+  transition: border-color .2s, background .2s;
+}
+.ec-field-input:focus { border-color: #3dba7a; background: #fff; }
+
+.ec-submit-row { display: flex; justify-content: flex-end; }
+
+.ec-submit-btn {
+  padding: 10px 28px;
+  background: #9ab0a8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .2s;
+}
+.ec-submit-btn:hover { background: #3dba7a; }
+
+/* Accessories / Surface header row */
+.ec-subsection-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ec-subsection-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a2a1a;
+}
+
+/* ── Modal ── */
+.ec-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.ec-modal {
+  background: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.18);
+  overflow: hidden;
+}
+
+.ec-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 14px;
+}
+
+.ec-modal-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a2a3a;
+}
+
+.ec-modal-close {
+  background: none;
+  border: none;
+  color: #8a9ab0;
+  cursor: pointer;
+  display: flex;
+  padding: 4px;
+  border-radius: 6px;
+  font-size: 18px;
+  line-height: 1;
+  transition: color .2s;
+}
+.ec-modal-close:hover { color: #3a4a5a; }
+
+.ec-modal-body {
+  padding: 4px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ec-modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ec-modal-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a2a3a;
+}
+.ec-modal-label .req { color: #e53935; }
+
+.ec-modal-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #f5f7f5;
+  font-size: 13.5px;
+  color: #1a2a3a;
+  font-family: inherit;
+  outline: none;
+  transition: background .2s;
+}
+.ec-modal-input:focus { background: #eef5ee; }
+.ec-modal-input::placeholder { color: #aab8b0; }
+
+.ec-modal-textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #d4ddd4;
+  border-radius: 8px;
+  background: #f5f7f5;
+  font-size: 13.5px;
+  color: #1a2a3a;
+  font-family: inherit;
+  outline: none;
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color .2s;
+}
+.ec-modal-textarea:focus { border-color: #3dba7a; background: #fff; }
+.ec-modal-textarea::placeholder { color: #aab8b0; }
+
+/* Upload row */
+.ec-upload-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ec-upload-btn {
+  padding: 8px 20px;
+  background: #fff;
+  color: #3dba7a;
+  border: 1.5px solid #3dba7a;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .2s;
+}
+.ec-upload-btn:hover { background: #f0faf5; }
+
+/* Uploaded image preview */
+.ec-img-preview-wrap {
+  position: relative;
+  width: 80px;
+}
+
+.ec-img-preview {
+  width: 80px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: linear-gradient(135deg, #a0d8b8, #3dba7a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ec-img-remove {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  line-height: 1;
+}
+
+/* Modal footer */
+.ec-modal-footer {
+  display: flex;
+  gap: 12px;
+  padding: 8px 24px 20px;
+}
+
+.ec-modal-cancel {
+  flex: 1;
+  padding: 12px;
+  background: #f0f4f0;
+  color: #3a4a3a;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .2s;
+}
+.ec-modal-cancel:hover { background: #e0e8e0; }
+
+.ec-modal-confirm {
+  flex: 1;
+  padding: 12px;
+  background: #3dba7a;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .2s;
+}
+.ec-modal-confirm:hover { background: #2ea868; }

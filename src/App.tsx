@@ -15,6 +15,7 @@ import Bookings       from './pages/superadmin/Bookings';
 import TurfAdmins     from './pages/superadmin/TurfAdmins';
 import Revenue        from './pages/superadmin/Revenue';
 import Settings       from './pages/superadmin/Settings';
+import EditConfigurations from './pages/superadmin/EditConfigurations';
 import Corporate      from './pages/superadmin/Corporate';
 import Report         from './pages/superadmin/Report';
 import Feedbacks      from './pages/superadmin/Feedbacks';
@@ -47,6 +48,7 @@ export default function App() {
           <Route path="report"                 element={<Report />} />
           <Route path="feedbacks"              element={<Feedbacks />} />
           <Route path="settings"               element={<Settings />} />
+          <Route path="settings/edit-configurations" element={<EditConfigurations />} />
 
           {/* Profile */}
           <Route path="profile"                element={<Profile />} />

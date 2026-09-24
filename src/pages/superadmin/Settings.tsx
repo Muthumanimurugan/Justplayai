@@ -1,73 +1,135 @@
-import PageHeader from '../../components/superadmin/PageHeader';
-import '../../components/superadmin/superadmin.css';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Settings.css';
 
 export default function Settings() {
+  const navigate = useNavigate();
+  const [notif1, setNotif1] = useState(true);
+  const [notif2, setNotif2] = useState(true);
+  const [autoUpdate, setAutoUpdate] = useState(true);
+
   return (
-    <div className="sa-page">
-      <PageHeader title="Settings" subtitle="Manage platform configuration" />
+    <div className="settings-root">
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
-        {/* Profile */}
-        <div className="sa-card settings-card">
-          <div className="sa-card-header"><span className="sa-card-title">Admin Profile</span></div>
-          <div className="settings-body">
-            <div className="settings-avatar-row">
-              <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'linear-gradient(135deg,#00b14f,#009140)', color: '#fff', fontSize: 20, fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>SA</div>
-              <button className="btn btn-outline btn-sm">Change photo</button>
+      {/* ── App Notifications ── */}
+      <section className="settings-section">
+        <h2 className="settings-section-title">App Notifications</h2>
+
+        <div className="settings-list-card">
+          {/* Row 1 */}
+          <div className="settings-row">
+            <div className="settings-row-text">
+              <p className="settings-row-label">Notifications</p>
+              <p className="settings-row-desc">You can edit your notification status</p>
             </div>
-            <div className="settings-field"><label>Full Name</label><input defaultValue="Super Admin" /></div>
-            <div className="settings-field"><label>Email</label><input defaultValue="admin@justplay.com" type="email" /></div>
-            <div className="settings-field"><label>Phone</label><input defaultValue="+91 9876543210" /></div>
-            <button className="btn btn-primary" style={{ marginTop: 8 }}>Save changes</button>
+            <div className="settings-row-right">
+              <label className="stg-toggle">
+                <input
+                  type="checkbox"
+                  checked={notif1}
+                  onChange={e => setNotif1(e.target.checked)}
+                />
+                <span className="stg-slider" />
+              </label>
+              <button className="settings-chevron" aria-label="Edit notification">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div className="settings-divider" />
+
+          {/* Row 2 */}
+          <div className="settings-row">
+            <div className="settings-row-text">
+              <p className="settings-row-label">Notifications</p>
+              <p className="settings-row-desc">You can edit your notification status</p>
+            </div>
+            <div className="settings-row-right">
+              <label className="stg-toggle">
+                <input
+                  type="checkbox"
+                  checked={notif2}
+                  onChange={e => setNotif2(e.target.checked)}
+                />
+                <span className="stg-slider" />
+              </label>
+              <button className="settings-chevron" aria-label="Edit notification">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Password */}
-        <div className="sa-card settings-card">
-          <div className="sa-card-header"><span className="sa-card-title">Change Password</span></div>
-          <div className="settings-body">
-            <div className="settings-field"><label>Current Password</label><input type="password" placeholder="••••••••" /></div>
-            <div className="settings-field"><label>New Password</label><input type="password" placeholder="••••••••" /></div>
-            <div className="settings-field"><label>Confirm Password</label><input type="password" placeholder="••••••••" /></div>
-            <button className="btn btn-primary" style={{ marginTop: 8 }}>Update password</button>
+      {/* ── More Settings ── */}
+      <section className="settings-section">
+        <h2 className="settings-section-title">More Settings</h2>
+
+        <div className="settings-list-card">
+          {/* Auto Updates */}
+          <div className="settings-row">
+            <div className="settings-row-text">
+              <p className="settings-row-label">Auto Updates</p>
+              <p className="settings-row-desc">
+                Please{' '}
+                <span className="settings-link">enable auto-updates</span>
+                {' '}to receive the latest features and{' '}
+                <span className="settings-link">improvements for your</span>
+                {' '}system.
+              </p>
+            </div>
+            <div className="settings-row-right">
+              <label className="stg-toggle">
+                <input
+                  type="checkbox"
+                  checked={autoUpdate}
+                  onChange={e => setAutoUpdate(e.target.checked)}
+                />
+                <span className="stg-slider" />
+              </label>
+              <button className="settings-chevron" aria-label="Edit auto updates">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div className="settings-divider" />
+
+          {/* Customize Configuration — clickable → Edit Configurations */}
+          <div
+            className="settings-row settings-row-clickable"
+            onClick={() => navigate('/superadmin/settings/edit-configurations')}
+            role="button"
+            tabIndex={0}
+            onKeyDown={e => e.key === 'Enter' && navigate('/superadmin/settings/edit-configurations')}
+          >
+            <div className="settings-row-text">
+              <p className="settings-row-label">Customize Configuration</p>
+              <p className="settings-row-desc">
+                You can{' '}
+                <span className="settings-link">customize your turf's</span>
+                {' '}operating hours and{' '}
+                <span className="settings-link">pricing configuration</span>.
+              </p>
+            </div>
+            <div className="settings-row-right">
+              <button className="settings-chevron" aria-label="Customize configuration">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Platform config */}
-        <div className="sa-card settings-card">
-          <div className="sa-card-header"><span className="sa-card-title">Platform Settings</span></div>
-          <div className="settings-body">
-            <div className="settings-toggle-row">
-              <div><p className="settings-toggle-label">Maintenance Mode</p><p className="settings-toggle-desc">Take the platform offline for maintenance</p></div>
-              <label className="toggle"><input type="checkbox" /><span className="toggle-slider" /></label>
-            </div>
-            <div className="settings-toggle-row">
-              <div><p className="settings-toggle-label">New Registrations</p><p className="settings-toggle-desc">Allow new user sign-ups</p></div>
-              <label className="toggle"><input type="checkbox" defaultChecked /><span className="toggle-slider" /></label>
-            </div>
-            <div className="settings-toggle-row">
-              <div><p className="settings-toggle-label">Email Notifications</p><p className="settings-toggle-desc">Send automated email alerts</p></div>
-              <label className="toggle"><input type="checkbox" defaultChecked /><span className="toggle-slider" /></label>
-            </div>
-            <div className="settings-field"><label>Platform Commission (%)</label><input type="number" defaultValue={10} min={0} max={100} /></div>
-            <button className="btn btn-primary" style={{ marginTop: 8 }}>Save settings</button>
-          </div>
-        </div>
-
-        {/* Notifications */}
-        <div className="sa-card settings-card">
-          <div className="sa-card-header"><span className="sa-card-title">Notification Preferences</span></div>
-          <div className="settings-body">
-            {['New booking alerts','Cancellation alerts','New user registrations','Revenue milestones','Turf approval requests'].map(n => (
-              <div className="settings-toggle-row" key={n}>
-                <p className="settings-toggle-label">{n}</p>
-                <label className="toggle"><input type="checkbox" defaultChecked /><span className="toggle-slider" /></label>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
